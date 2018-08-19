@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+
+  //We are going to create a function where 'n' will be the total numbers to
+  //compute
+
+  function fizzBuzz(n) {
+
+    //We will store the resulting numbers within an array called result
+    let result =[];
+
+    //Here is interesting to talk about the diferences between 'let' and 'var'
+    //keywords. Variables declared with 'let' can have a Block Scope. Instead,
+    //variables declared with 'var' can be modified outside a block.
+
+    //Create a loop from 1 to
+    for (let i=1; i <= n; i++) {
+
+      let add = '';
+
+      //On this first statment we create a conditional that checks if the
+      //division of the given number by 3 results in zero. For this, the
+      // modulus operator '%' is used. Also, it is used '===' instead of '=='
+      //that checks not just if it is an equal value but also if it is an equal
+      //type.
+
+      if(i%3 === 0) {add += 'Fizz'}
+
+      //The same for 5
+
+      if(i%5 === 0) {add += 'Buzz'}
+
+      //If is not divisible by 5 or 3, we return the input number. We make this
+      //by cheking the state of the variable 'add'.
+
+      if(add === '') {result.push(i);}
+      else {result.push(add);}
+
+    }
+
+    //We return the array
+    return result;
+
+  }
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Fizz buzz</h1>
+<p>Print out all the numbers from 1 to 100.
+  But for every number divisible by 3 print replace it with the word “Fizz,”
+  for any number divisible by 5 replace it with the word “Buzz” and for a
+  number divisible by both 3 and 5 replace it with the word “FizzBuzz.”</p>
+
+<!-- A button is used to trigger the function showResult(), which calls
+our main function and shows the entire array -->
+
+<button type="button" onclick="showResult();">Try it</button>
+
+
+<script>
+
+function showResult() {
+
+
+  let finalResult = fizzBuzz(100);
+
+  //We create a string made by the concatenation of the values of finalResult
+  //to put into the HTML body
+  var stringResult = 'Result: ';
+
+  for(let i=0; i<100; i++){
+
+    stringResult += finalResult[i] + '\n';
+    console.log(finalResult[i]);
+
+  }
+
+document.getElementById("showresult").innerHTML = stringResult;
+}
+
+</script>
+
+<p id="showresult"> </p>
+
+</body>
+</html>
