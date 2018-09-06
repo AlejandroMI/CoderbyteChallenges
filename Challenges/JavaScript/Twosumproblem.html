@@ -5,15 +5,93 @@
 
   <script>
 
-  
+  //the most intuitive way to solve this problem.
+  //That is to simply loop through the array and for each element check if
+  //there is a second element that when both are summed are equal to S.
+  //This will require us to write a nested loop.[1] This solution will run in O(n2)
+  //Ii is so much better if we use a HASH table that runs only in O(n)
+
+  function twoSum(arr,S) {
+
+    let hashTable = {};
+
+    //we obtain every number in the array
+    for (let i=0; i<arr.length; i++){
+
+      //So what we are gonna do now is to obtain the result of minus the
+      //number in position i to the total sum S. By doing this we will obtain
+      //the secon number needed to finally obtain S.
+      let sumMinusElement = S - arr[i];
+
+      //Now is time to check if the result is already in our array, what will
+      //mean that there is two numbers on the table that sum S.
+
+      if(hashTable[sumMinusElement] !== undefined){
+        return true;
+      }
+
+      //If is not in the hashTable, we will add the actual number arr[i] to
+      //the table.
+
+      hashTable[arr[i]]=true;
+
+    }
+
+    //If we have not found anything...
+    return false;
+
+  }
+
+
+
 
   </script>
 
 <body>
 
-  <p> Two sum problem </p>
+  <h1> Two sum problem </h1>
   <p> You are given an array and some number S.
-    Determine if any two numbers within the array sum to S. </p>
+    Determine if any two numbers within the array sum to S.  </p>
+  <p> In this case the array is [4,7,13,2,8,1,22]. You can input S </p>
+
+  <!-- To learn about inputs follow this link:
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number -->
+
+  <label for="sum">S:</label>
+
+  <input type="number" id="sum" name="sum"
+  placeholder="1 to 100" step="1" min="0" max="100"/>
+
+  <span class="validity"></span>
+
+
+    <!-- A button is used to trigger the function showResult(), which calls
+    our main function and shows the entire array -->
+
+    <button type="button" onclick="showResult();">Try it</button>
+
+    <script>
+
+    var arr = [4,7,13,2,8,1,22];
+
+      function showResult() {
+
+        //We get the number specified by the user
+        let userInput = document.getElementById('sum').value;
+
+        //Then we call to the twoSum function to compute the results
+        let result = twoSum(arr, userInput);
+
+        //Now, if the function return true we inform the user that is correct
+        //If not, we inform that is not.
+        if (result==true){window.alert("That's it!")}
+        else{window.alert("There aren't any numbers on the array that sum your input")}
+
+
+      }
+
+
+    </script>
 
 </body>
 
