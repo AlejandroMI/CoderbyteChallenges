@@ -2,7 +2,15 @@
 <html>
 <head>
 
+    <!--- For correct visualization-->
+  <title>FizzBuzz</title>
+  <meta charset="utf-8">
 
+  <!--- Importing font and reference to style.css -->
+
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
 
 <script>
 
@@ -54,18 +62,47 @@
 
 <body>
 
-<div id="container">
-<h1>Fizz buzz</h1>
-<p>Print out all the numbers from 1 to 100.
-  But for every number divisible by 3 print replace it with the word “Fizz,”
-  for any number divisible by 5 replace it with the word “Buzz” and for a
-  number divisible by both 3 and 5 replace it with the word “FizzBuzz.”</p>
-</div>
+  <div>
+
+    <header>
+      <div class= "lit">
+        <span>Fizz Buzz</span>
+      </div>
+    </header>
+
+
+    <main>
+      <div><!-- The content goes here -->
+
+        <div>
+              <h1>
+                The exercise:
+              </h1>
+
+              <p>Print out all the numbers from 1 to 100.
+                But for every number divisible by 3 print replace it with the word “Fizz,”
+                for any number divisible by 5 replace it with the word “Buzz” and for a
+                number divisible by both 3 and 5 replace it with the word “FizzBuzz.”</p>
+        </div>
+
+        <div>
+              <button type="button" class=button onclick="showResult();">Try it</button>
+        </div>
+
+        <div>
+              <h1 id="title"> </h1>
+
+              <p id="showresult"> </p>
+        </div>
+
+
+        </div>
+      </main>
+
+    </div>
 
 <!-- A button is used to trigger the function showResult(), which calls
 our main function and shows the entire array -->
-
-<button type="button" onclick="showResult();">Try it</button>
 
 
 <script>
@@ -77,7 +114,7 @@ function showResult() {
 
   //We create a string made by the concatenation of the values of finalResult
   //to put into the HTML body
-  var stringResult = 'Result: ';
+  var stringResult = '';
 
   for(let i=0; i<100; i++){
 
@@ -87,11 +124,12 @@ function showResult() {
   }
 
 document.getElementById("showresult").innerHTML = stringResult;
+document.getElementById("title").innerHTML = "Result:";
 }
 
 </script>
 
-<p id="showresult"> </p>
+
 
 </body>
 </html>

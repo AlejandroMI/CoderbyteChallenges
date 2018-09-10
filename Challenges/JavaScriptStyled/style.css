@@ -1,0 +1,81 @@
+header {
+
+  background-color: CadetBlue;
+
+  text-align: center;
+
+  font-size: 40pt;
+
+  font-family: "Fredoka One";
+
+  color: LightSalmon;
+
+  padding: 5vw;
+
+}
+
+
+.lit:hover {
+    color: salmon;
+}
+
+body {
+
+  background-color: CadetBlue;
+
+  font-size: 10pt;
+
+  font-family: Helvetica;
+
+  color: white;
+
+  line-height: 14pt;
+
+  padding: 10vw;
+
+}
+
+
+h1 {
+
+  font-family: "Oswald";
+
+  font-size: 25pt;
+
+  line-height: 20pt;
+
+}
+
+button{
+
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: LightSalmon;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
+}
+
+.button:hover {background-color: Salmon}
+
+.button:active {
+  background-color: Salmon;
+  box-shadow: 0 5px #333;
+  transform: translateY(4px);
+}
+
+}
+
+img {
+
+  padding: 3pt;
+
+  float: right;
+
+}
