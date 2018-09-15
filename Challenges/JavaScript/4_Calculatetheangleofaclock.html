@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Here goes the function that solves the problem -->
+
+<script>
+
+  //Description of the exercise:
+
+  function clockAngle(hour,minutes) {
+
+    let minutesHandAngle = minutes * 6;
+    let hourHandAngle = 0.5 * (hour*60 + minutes);
+
+    angle = Math.abs(hourHandAngle - minutesHandAngle);
+
+    if(angle>180){
+      return (360-angle);
+    }
+
+    return angle;
+
+  }
+
+</script>
+
+<!-- .............................................. -->
+
+
+</head>
+<body>
+
+  <h1>Calculcate the angle on a clock</h1>
+  <p>This problem asks you to determine the angle between the to hands on a clock.
+     For example, if the minute hand is on the 3 and the hour hand is on the 12,
+     then this forms a 90 degree angle. If the hour hand is slightly past the 2
+     and the minute hand is on the 4, then the angle formed between the hands
+     is 50 degrees. In this case we are taken the current time.</p>
+
+  <!-- More comments? -->
+
+  <!-- Button to trigger the function -->
+  <button type="button" onclick="showResult();">Try it!</button>
+
+  <script>
+  //Call the function and show the result
+      function showResult() {
+
+        var d = new Date();
+
+        hour=d.getHours();
+        console.log(hour);
+        minutes=d.getMinutes();
+        console.log(minutes);
+
+        result = clockAngle(hour,minutes);
+
+        //We call to the HTML documento to show our result on the page
+        document.getElementById("showresult").innerHTML =
+        "The angle between hands is of " + result + " degrees.";
+      }
+
+  </script>
+
+  <!-- Our result -->
+  <p id="showresult"> </p>
+
+</body>
+</html>

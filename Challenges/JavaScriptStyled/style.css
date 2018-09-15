@@ -6,6 +6,10 @@ header {
 
   font-size: 40pt;
 
+  letter-spacing: 3px;
+
+  text-shadow: 3px 2px lightYellow;
+
   font-family: "Fredoka One";
 
   color: LightSalmon;
@@ -49,7 +53,9 @@ h1 {
 button{
 
   display: inline-block;
+  
   padding: 15px 25px;
+  font-family: "Fredoka One";
   font-size: 15px;
   cursor: pointer;
   text-align: center;
