@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Here goes the function that solves the problem -->
+
+<script>
+
+  //Here is important to know that is called prime beacuse we can only obtain
+//this number by multiplying the number itself per 1. What leads to the other type
+//of numbers: compounds ones, like 16(4*4)(8*2), but not 11(11*1). By general
+//agreement the 1 is not either prime or compund. So we should implement this
+//in our algorithm. Then, we could try to see if (n) result in modulus 0
+//anytime from 2 to n-1, what will mean that is a compund number. But in order
+//to reduce compute time, we can only compute from 2 to the square of n. We can
+//do this beacuse if its a compund number one of the multipliers will be always
+//less than the square of n.
+
+  function isPrime(n) {
+
+    //check if its 1
+    if(n<2) {
+      return false;
+    }
+
+    //now we use math.ceil to get the closest integer to the square of n hand
+    //loop until this number checking if the modulus equals to zero.
+    for(let i=2; i<Math.ceil(Math.sqrt(n)); i++) {
+
+        if(n%i === 0){
+          return false;
+        }
+    }
+
+    return true;
+  }
+
+</script>
+
+<!-- .............................................. -->
+
+
+</head>
+<body>
+
+  <h1>Determine if N is a prime number</h1>
+  <p>This is a classic coding questins that asks you to write a program to
+    determine whether or not some input N is a prime number. A prime number is
+    a number that is divisible only by 1 and itself. The first few prime numbers
+    are: 2, 3, 5, 7, 11, 17, ...</p>
+  <p> Please, enter a number to check if it is a prime number </p>
+
+  <!--  Now we use a intup to leave the user enter n-->
+  <!-- To learn about inputs follow this link:
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number -->
+
+  <label for="N">N:</label>
+
+  <input type="number" id="n" name="N"
+  placeholder="..." step="1" />
+
+  <span class="validity"></span>
+
+  <!-- Button to trigger the function -->
+  <button type="button" onclick="showResult();">Try it!</button>
+
+  <script>
+
+  //Call the function and show the result
+      function showResult() {
+
+        //We get the number specified by the user
+        let userInput = document.getElementById('n').value;
+
+        let result = isPrime(userInput);
+
+
+        if(result===true){
+          //We call to the HTML documento to show our result on the page
+          document.getElementById("showresult").innerHTML = "It's prime!";
+        }else{
+          //We call to the HTML documento to show our result on the page
+          document.getElementById("showresult").innerHTML = "Oh, it's not";
+        }
+
+      }
+
+  </script>
+
+  <!-- Our result -->
+  <p id="showresult"> </p>
+
+</body>
+</html>
