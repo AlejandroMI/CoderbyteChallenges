@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- We are gonna implement a filter function -->
+
+<script>
+
+  //We have to take a list or array and return it filtering the parameters
+  //with a certain function in a new list or array.
+
+  function myFilter(arr,fn) {
+
+    //The first step is to create the result array
+    let result = [];
+
+    for(let i of arr){
+      let check = fn(i);
+      if(check){result.push(i);}
+    }
+
+    return result;
+
+  }
+
+</script>
+
+<!-- .............................................. -->
+
+
+</head>
+<body>
+
+  <h1>Implementing Filter</h1>
+  <p>Map and filter are common functional programming methods that you have most
+    likely used when coding. They are both functions that take in a list,
+    perform some operation on that list without changing the original list,
+    and then return a new lists. The functions do not change any other
+    variables and do not touch anything else except those lists they were given.
+    We are going to implement our own.</p>
+  <p>Filter works by taken a list and making some kind of filter, in other
+    words, a condicional statment. Then ii will create a new list with the
+    items that pass this condition. Our list is [-2, 4, 5, 8, -44, -6]
+    We will delete the negative numbers. </p>
+
+  <!-- Now we can try the map function with some functions -->
+
+  <!-- Button to trigger the function -->
+  <button type="button" onclick="showResult();">Try it!</button>
+
+  <script>
+  //We create very simple function using arrow functions, that is a easiest and
+  //simple way to create a function that the usual form. To know more:
+  // http://exploringjs.com/es6/ch_arrow-functions.html
+
+  //Create the function to check if it is a positive number
+  var isPositive = (x) => x>0;
+
+  //Call the function and show the result
+      function showResult() {
+
+        //Array declaration
+        let arr = [-2, 4, 5, 8, -44, -6];
+
+        //Call our map funciton
+        let result = myFilter(arr,isPositive);
+
+        //We call to the HTML documento to show our result on the page
+        document.getElementById("showresult").innerHTML = result;
+      }
+
+  </script>
+
+  <!-- Our result -->
+  <p id="showresult"> </p>
+
+</body>
+</html>

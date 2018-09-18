@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- We are gonna implement a map function -->
+
+<script>
+
+  //We have to take a list or array and return it changing the parameters
+  //with a certain function in a new list or array.
+
+  function myMap(arr,fn) {
+
+    //The first step is to create the result array
+    let result = [];
+
+    for(let i of arr){
+      let applied = fn(i);
+      result.push(applied);
+    }
+
+    return result;
+
+  }
+
+</script>
+
+<!-- .............................................. -->
+
+
+</head>
+<body>
+
+  <h1>Implementing Map</h1>
+  <p>Map and filter are common functional programming methods that you have most
+    likely used when coding. They are both functions that take in a list,
+    perform some operation on that list without changing the original list,
+    and then return a new lists. The functions do not change any other
+    variables and do not touch anything else except those lists they were given.
+    We are going to implement our own.</p>
+  <p>Map works by taking a list and a function, and it applies the function to
+    each element in the list and returns a new list. Our list is [1,2,3,4]
+    We will compute the square of this array. </p>
+
+  <!-- Now we can try the map function with some functions -->
+
+  <!-- Button to trigger the function -->
+  <button type="button" onclick="showResult();">Try it!</button>
+
+  <script>
+  //We create very simple function using arrow functions, that is a easiest and
+  //simple way to create a function that the usual form. To know more:
+  // http://exploringjs.com/es6/ch_arrow-functions.html
+
+  //The following function will be the same that use:
+  // function square(x){return x*x;}
+  var square = (x) => x*x;
+
+  //Here is another one:
+  //What we do is to add a pair of zeros to the input and then return the
+  //value as an integer, using parseInt.
+  var addZeros = (x) => parseInt(x += '00')
+
+
+  //Call the function and show the result
+      function showResult() {
+
+        //Array declaration
+        let arr = [1,2,3,4];
+
+        //Call our map funciton
+        let result = myMap(arr,square);
+
+        //We call to the HTML documento to show our result on the page
+        document.getElementById("showresult").innerHTML = result;
+      }
+
+  </script>
+
+  <!-- Our result -->
+  <p id="showresult"> </p>
+
+</body>
+</html>
